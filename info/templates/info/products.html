@@ -1,0 +1,37 @@
+{% extends 'info/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- school faculty list section start -->
+
+<section class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto m-2">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Online Shop Window</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
+    </div>
+    <div class = 'container'>
+      <div class = "row">
+      {% for item in product %}
+            <div class='col-sm-4 md-4 lg-4 '>
+            <div class="card" style="width: inherit;">
+              <img class="card-img-top" src="{{ item.imageURL }}" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text"> {{ item.name }} Manufactured by - {{item.manufacture}}</p>
+                <p class="card-text">Descriptions - {{ item.descriptions }}</p>
+                <p class="card-text">Price - {{ item.price }} with  <span class = 'badge badge-primary text-white p-2'> {{item.sale}} % OFF </span> </p>
+              </div>
+            </div>
+            </div> 
+       {% endfor %}
+    
+           </div>
+      </div>
+    </div>
+
+</section>
+
+<!-- school faculty list section end -->
+
+
+{% endblock content %}
